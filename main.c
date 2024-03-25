@@ -189,103 +189,112 @@ void hexadecimalToOctal(char hex[]) {
 
 int main() {
     int first, second, n;
-    printf("Number Conversion System\nProgrammer: Axcel Macansantos\n\n");
-    
-    printf("1 for binary\t2 for decimal\n3 for octal\t\t4 for hexa\nEnter:");
-    scanf("%d", &first);
+    char choice[MAX];
+    while (1) {
+        printf("Number Conversion System\nProgrammer: Axcel Macansantos\n\n");
+        
+        printf("1 for binary\t2 for decimal\n3 for octal\t\t4 for hexa\nEnter:");
+        scanf("%d", &first);
 
-    switch (first) {
-        case 1: printf("Base =  BINARY\n\n"); break;
-        case 2: printf("Base =  DECIMAL\n\n"); break;
-        case 3: printf("Base =  OCTAL\n\n"); break;
-        case 4: printf("Base =  HEXA\n\n"); break;
-        default: printf("Invalid input\n"); return 0;
-    }
+        switch (first) {
+            case 1: printf("Base =  BINARY\n\n"); break;
+            case 2: printf("Base =  DECIMAL\n\n"); break;
+            case 3: printf("Base =  OCTAL\n\n"); break;
+            case 4: printf("Base =  HEXA\n\n"); break;
+            default: printf("Invalid input\n"); continue;
+        }
 
-    printf("\n1 to binary\t\t2 to decimal\n3 to octal\t\t4 to hexa\nEnter:");
-    scanf("%d", &second);
+        printf("\n1 to binary\t\t2 to decimal\n3 to octal\t\t4 to hexa\nEnter:");
+        scanf("%d", &second);
 
-    switch (second) {
-        case 1: printf("Conversion to BINARY\n\n"); break;
-        case 2: printf("Conversion to DECIMAL\n\n"); break;
-        case 3: printf("Conversion to OCTAL\n\n"); break;
-        case 4: printf("Conversion to HEXA\n\n"); break;
-        default: printf("Invalid input\n"); return 0;
-    }
+        switch (second) {
+            case 1: printf("Conversion to BINARY\n\n"); break;
+            case 2: printf("Conversion to DECIMAL\n\n"); break;
+            case 3: printf("Conversion to OCTAL\n\n"); break;
+            case 4: printf("Conversion to HEXA\n\n"); break;
+            default: printf("Invalid input\n"); continue;
+        }
 
-    printf("Enter the number: ");
-    scanf("%d", &n);
-    
-    switch (first) {
-        case 1:
-            switch (second) {
-                case 2:
-                    printf("Decimal Value: %d\n", binaryToDecimal(n));
-                    break;
-                case 3:
-                    printf("Octal Value: %d\n", binaryToOctal(n));
-                    break;
-                case 4:
-                    binaryToHexadecimal(n);
-                    break;
-                default:
-                    printf("Invalid input\n");
-                    break;
-            }
-            break;
-        case 2:
-            switch (second) {
-                case 1:
-                    decimalToBinary(n);
-                    break;
-                case 3:
-                    decimalToOctal(n);
-                    break;
-                case 4:
-                    decimalToHexadecimal(n);
-                    break;
-                default:
-                    printf("Invalid input\n");
-                    break;
-            }
-            break;
-        case 3:
-            switch (second) {
-                case 1:
-                    octalToBinary(n);
-                    break;
-                case 2:
-                    printf("Decimal Value: %d\n", octalToDecimal(n));
-                    break;
-                case 4:
-                    octalToHexadecimal(n);
-                    break;
-                default:
-                    printf("Invalid input\n");
-                    break;
-            }
-            break;
-        case 4:
-            char hex[MAX];
-            printf("Enter hexadecimal number: ");
-            scanf("%s", hex);
-            switch (second) {
-                case 1:
-                    hexadecimalToBinary(hex);
-                    break;
-                case 2:
-                    printf("Decimal: %d\n", hexadecimalToDecimal(hex));
-                    break;
-                case 3:
-                    hexadecimalToOctal(hex);
-                    break;
-                default:
-                    printf("Invalid input\n");
-                    break;
-            }
-            break;
-        default:
-            printf("Invalid input\n");
+        printf("Enter the number: ");
+        scanf("%d", &n);
+
+        switch (first) {
+            case 1:
+                switch (second) {
+                    case 2:
+                        printf("Decimal Value: %d\n", binaryToDecimal(n));
+                        break;
+                    case 3:
+                        printf("Octal Value: %d\n", binaryToOctal(n));
+                        break;
+                    case 4:
+                        binaryToHexadecimal(n);
+                        break;
+                    default:
+                        printf("Invalid input\n");
+                        break;
+                }
+                break;
+            case 2:
+                switch (second) {
+                    case 1:
+                        decimalToBinary(n);
+                        break;
+                    case 3:
+                        decimalToOctal(n);
+                        break;
+                    case 4:
+                        decimalToHexadecimal(n);
+                        break;
+                    default:
+                        printf("Invalid input\n");
+                        break;
+                }
+                break;
+            case 3:
+                switch (second) {
+                    case 1:
+                        octalToBinary(n);
+                        break;
+                    case 2:
+                        printf("Decimal Value: %d\n", octalToDecimal(n));
+                        break;
+                    case 4:
+                        octalToHexadecimal(n);
+                        break;
+                    default:
+                        printf("Invalid input\n");
+                        break;
+                }
+                break;
+            case 4:
+                char hex[MAX];
+                printf("Enter hexadecimal number: ");
+                scanf("%s", hex);
+                switch (second) {
+                    case 1:
+                        hexadecimalToBinary(hex);
+                        break;
+                    case 2:
+                        printf("Decimal: %d\n", hexadecimalToDecimal(hex));
+                        break;
+                    case 3:
+                        hexadecimalToOctal(hex);
+                        break;
+                    default:
+                        printf("Invalid input\n");
+                        break;
+                }
+                break;
+            default:
+                printf("Invalid input\n");
+                break;
+        }
+
+        printf("To exit type 'diliNAKO' ");
+        scanf("%s", choice);
+
+        if (strcmp(choice, "diliNAKO") == 0)
             break;
     }
 
