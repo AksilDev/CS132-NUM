@@ -13,7 +13,7 @@ int binaryToDecimal(int n) {
         int last_digit = n % 10;
         if (last_digit != 0 && last_digit != 1) {
             printf("Invalid binary input.\n");
-            return -1; // Return -1 for invalid input
+            return -1; // invalid
         }
         n = n / 10;
         dec_value += last_digit * base;
@@ -25,7 +25,7 @@ int binaryToDecimal(int n) {
 
 int binaryToOctal(int n) {
     int dec_value = binaryToDecimal(n);
-    if (dec_value == -1) // Invalid binary input
+    if (dec_value == -1) //not valid input of binrrryy
         return -1;
     
     int oct = 0, i = 1;
@@ -120,7 +120,7 @@ int octalToBinary(int n) {
         int last_digit = n % 10;
         if (last_digit >= 8) {
             printf("Invalid octal input.\n");
-            return -1; // Return -1 for invalid input
+            return -1; //if invaleeed
         }
         dec_value += last_digit * base;
         base *= 8;
@@ -138,7 +138,7 @@ int octalToDecimal(int n) {
         int last_digit = n % 10;
         if (last_digit >= 8) {
             printf("Invalid octal input.\n");
-            return -1; // Return -1 for invalid input
+            return -1; //invalid onleee
         }
         dec_value += last_digit * base;
         base *= 8;
@@ -193,7 +193,7 @@ int main() {
     while (1) {
         printf("Number Conversion System\nProgrammer: Axcel Macansantos\n\n");
         
-        printf("1 for binary\t2 for decimal\n3 for octal\t\t4 for hexa\nEnter:");
+        printf("1 for binary\t2 for decimal\n3 for octal\t\t4 for hexa\nEnter: ");
         scanf("%d", &first);
 
         switch (first) {
@@ -204,7 +204,7 @@ int main() {
             default: printf("Invalid input\n"); continue;
         }
 
-        printf("\n1 to binary\t\t2 to decimal\n3 to octal\t\t4 to hexa\nEnter:");
+        printf("\n1 to binary\t\t2 to decimal\n3 to octal\t\t4 to hexa\nEnter: ");
         scanf("%d", &second);
 
         switch (second) {
