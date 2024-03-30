@@ -177,14 +177,98 @@ int hexadecimalToDecimal(char hex[]) {
     return dec;
 }
 
-void hexadecimalToBinary(char hex[]) {
-    int dec_value = hexadecimalToDecimal(hex);
-    decimalToBinary(dec_value);
-}
+void hexadecimalToBinary(char hex[])  
+{  
+   int i=0;   
+   while(hex[i])  
+   {  
+       switch(hex[i])  
+       {  
+           case '0':  
+           printf("0000");  
+           break;  
+           case '1':  
+           printf("0001");  
+           break;  
+           case '2':  
+           printf("0010");  
+           break;  
+           case '3':  
+           printf("0011");  
+           break;  
+           case '4':  
+           printf("0100");  
+           break;  
+           case '5':  
+           printf("0101");  
+           break;  
+           case '6':  
+           printf("0110");  
+           break;  
+           case '7':  
+           printf("0111");  
+           break;  
+           case '8':  
+           printf("1000");  
+           break;  
+           case '9':  
+           printf("1000");  
+           break;  
+           case 'A':  
+           printf("1010");  
+           break;  
+           case 'a':  
+           printf("1010");  
+           break;  
+           case 'B':  
+           printf("1011");  
+           break;  
+           case 'b':  
+           printf("1011");  
+           break;  
+           case 'C':  
+           printf("1100");  
+           break;  
+           case 'c':  
+           printf("1100");  
+           break;  
+           case 'D':  
+           printf("1101");  
+           break;  
+           case 'd':  
+           printf("1101");  
+           break;  
+           case 'E':  
+           printf("1110");  
+           break;  
+           case 'e':  
+           printf("1110");  
+           break;  
+           case 'F':  
+           printf("1111");  
+           break;  
+           case 'f':  
+           printf("1111");  
+           break;  
+       }  
+       i++;  
+   }}  
+
 
 void hexadecimalToOctal(char hex[]) {
-    int dec_value = hexadecimalToDecimal(hex);
-    decimalToOctal(dec_value);
+   int decimal = hexadecimalToDecimal(hex);
+
+    int octal[100], i = 0;
+    while (decimal != 0) {
+        octal[i++] = decimal % 8;
+        decimal /= 8;
+    }
+
+    printf("Equivalent octal value: ");
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%d", octal[j]);
+    }
+    printf("\n");
 }
 
 int main() {
@@ -193,7 +277,7 @@ int main() {
     while (1) {
         printf("Number Conversion System\nProgrammer: Axcel Macansantos\n\n");
         
-        printf("1 for binary\t2 for decimal\n3 for octal\t\t4 for hexa\nEnter: ");
+        printf("1 for binary\t2 for decimal\n3 for octal\t4 for hexa\nEnter: ");
         scanf("%d", &first);
 
         switch (first) {
@@ -221,50 +305,26 @@ int main() {
         switch (first) {
             case 1:
                 switch (second) {
-                    case 2:
-                        printf("Decimal Value: %d\n", binaryToDecimal(n));
-                        break;
-                    case 3:
-                        printf("Octal Value: %d\n", binaryToOctal(n));
-                        break;
-                    case 4:
-                        binaryToHexadecimal(n);
-                        break;
-                    default:
-                        printf("Invalid input\n");
-                        break;
+                    case 2:printf("Decimal Value: %d\n", binaryToDecimal(n));break;
+                    case 3:printf("Octal Value: %d\n", binaryToOctal(n));break;
+                    case 4:binaryToHexadecimal(n);break;
+                    default:printf("Invalid input\n");break;
                 }
                 break;
             case 2:
                 switch (second) {
-                    case 1:
-                        decimalToBinary(n);
-                        break;
-                    case 3:
-                        decimalToOctal(n);
-                        break;
-                    case 4:
-                        decimalToHexadecimal(n);
-                        break;
-                    default:
-                        printf("Invalid input\n");
-                        break;
+                    case 1:decimalToBinary(n);break;
+                    case 3:decimalToOctal(n);break;
+                    case 4:decimalToHexadecimal(n);break;
+                    default:printf("Invalid input\n");break;
                 }
                 break;
             case 3:
                 switch (second) {
-                    case 1:
-                        octalToBinary(n);
-                        break;
-                    case 2:
-                        printf("Decimal Value: %d\n", octalToDecimal(n));
-                        break;
-                    case 4:
-                        octalToHexadecimal(n);
-                        break;
-                    default:
-                        printf("Invalid input\n");
-                        break;
+                    case 1:octalToBinary(n);break;
+                    case 2:printf("Decimal Value: %d\n", octalToDecimal(n));break;
+                    case 4:octalToHexadecimal(n);break;
+                    default:printf("Invalid input\n");break;
                 }
                 break;
             case 4:
@@ -274,31 +334,23 @@ int main() {
                 scanf("%s", hex);
                 
                 switch (second) {
-                    case 1:
-                        hexadecimalToBinary(hex);
-                        break;
-                    case 2:
-                        printf("Decimal: %d\n", hexadecimalToDecimal(hex));
-                        break;
-                    case 3:
-                        hexadecimalToOctal(hex);
-                        break;
-                    default:
-                        printf("Invalid input\n");
-                        break;
+                    case 1:hexadecimalToBinary(hex);break;
+                    case 2:printf("Decimal: %d\n", hexadecimalToDecimal(hex));break;
+                    case 3:hexadecimalToOctal(hex);break;
+                    default:printf("Invalid input\n");break;
                 }
                 break;
-            default:
-                printf("Invalid input\n");
-                break;
+            default:printf("Invalid input\n");break;
         }
 
-        printf("To exit type 'diliNAKO' ");
+        printf("\nTo exit type 'EXIT' ");
         scanf("%s", choice);
 
-        if (strcmp(choice, "diliNAKO") == 0)
+        if (strcmp(choice, "EXIT") == 0)
             break;
     }
 
     return 0;
 }
+
+

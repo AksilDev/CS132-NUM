@@ -1,0 +1,1 @@
+gcc CONmain.c CONfunctions.c -o RUN_ME
