@@ -268,9 +268,11 @@ int main() {
                 }
                 break;
             case 4:
-                char hex[MAX];
+                
                 printf("Enter hexadecimal number: ");
+                char hex[MAX];
                 scanf("%s", hex);
+                
                 switch (second) {
                     case 1:
                         hexadecimalToBinary(hex);
